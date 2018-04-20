@@ -43,7 +43,7 @@ while escolha !=0:
             quantidade = int(input('Quantidade: '))
             estoque[item_altera] += quantidade
             print ('Novo estoque de {0}: {1}'.format(item_altera, estoque[item_altera]['quantidade']))
-'''
+            
     if escolha == 4:
-        for i in estoque:
-'''          
+        print(estoque)
+            
