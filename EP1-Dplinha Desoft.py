@@ -1,8 +1,11 @@
 
-estoque = {}    
+import json
 
+with open('estoque.json','r') as arquivo:
+    e = json.loads(arquivo.read())
+    
 escolha = -1
-
+estoque = e
 while escolha !=0:
     print('\n')
     print('Controle de estoque')
@@ -11,9 +14,9 @@ while escolha !=0:
     print('2 - Remover item')
     print('3 - Alterar item')
     print('4 - Imprimir estoque')   
-
+        
     escolha = int(input('Faça uma escolha: '))
-
+        
     if escolha == 0:
         print('Até mais!')
         
@@ -25,10 +28,10 @@ while escolha !=0:
             while quantidade_inicial<0:
                 print('A quantidade inicial não pode ser negativa')
                 quantidade_inicial = int(input('Quantidade inicial: '))
-            estoque[item]['quantidade'] = quantidade_inicial
+                estoque[item]['quantidade'] = quantidade_inicial
         else:
             print('Produto já cadastrado')
-      
+     
     if escolha == 2:
         item_remove = input('Nome do produto: ')
         if item_remove not in estoque:
@@ -47,3 +50,8 @@ while escolha !=0:
             
     if escolha == 4:
         print(estoque)
+            
+estoque_json = json.dumps(estoque, sort_keys = True, indent = 4)           
+        
+with open('estoque.json','w') as saida:
+    saida.write(estoque_json)
