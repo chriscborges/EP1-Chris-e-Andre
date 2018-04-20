@@ -1,6 +1,7 @@
-escolha = -1
 
-estoque = {}
+estoque = {}    
+
+escolha = -1
 
 while escolha !=0:
     print('\n')
@@ -9,7 +10,7 @@ while escolha !=0:
     print('1 - Adicionar item')
     print('2 - Remover item')
     print('3 - Alterar item')
-    print('4 - Imprimir estoque')
+    print('4 - Imprimir estoque')   
 
     escolha = int(input('Faça uma escolha: '))
 
@@ -19,8 +20,8 @@ while escolha !=0:
     if escolha == 1:
         item = input('Nome do produto: ')
         if item not in estoque:
-            estoque[item] = {'quantidade': }
             quantidade_inicial = int(input('Quantidade inicial: '))
+            estoque[item] = {'quantidade': quantidade_inicial }
             while quantidade_inicial<0:
                 print('A quantidade inicial não pode ser negativa')
                 quantidade_inicial = int(input('Quantidade inicial: '))
@@ -41,9 +42,8 @@ while escolha !=0:
             print('Elemento não encontrado')
         else:
             quantidade = int(input('Quantidade: '))
-            estoque[item_altera] += quantidade
+            estoque[item_altera]['quantidade'] += quantidade
             print ('Novo estoque de {0}: {1}'.format(item_altera, estoque[item_altera]['quantidade']))
             
     if escolha == 4:
         print(estoque)
-            
