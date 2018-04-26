@@ -41,7 +41,14 @@ while escolha_loja !=0:
             print('Loja não encontrada')
         if nome_loja in estoque:
             s = True
-
+    if escolha_loja == 3:
+        nome_loja = input('Qual o nome da loja?: ')
+        if nome_loja in estoque:
+            del(estoque[nome_loja])
+            print('Loja apagada')
+        elif nome_loja not in estoque:
+            print('Loja não encotrada')
+            
     if s == True:
         while escolha !=0:
             print('\n')
